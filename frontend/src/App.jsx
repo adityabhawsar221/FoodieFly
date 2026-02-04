@@ -19,7 +19,7 @@ import OrderPlaced from './pages/OrderPlaced';
 import MyOrders from './pages/MyOrders';
 import useGetMyOrders from './hooks/useGetMyOrders';
 import useUpdateLocation from './hooks/useUpdateLocation';
-export const serverUrl = "http://localhost:3000"
+export const serverUrl = "https://foodiefly-backend.onrender.com"
 import TrackOrderPage from './pages/TrackOrderPage';
 import Shop from './pages/Shop';
 import DeliveryHistory from './pages/DeliveryHistory';
