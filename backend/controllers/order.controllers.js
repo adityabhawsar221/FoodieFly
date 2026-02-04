@@ -1,4 +1,4 @@
-const DeliveryAssignment = require("../models/DeliveryAssignment.model");
+const DeliveryAssignment = require("../models/deliveryAssignment.model");
 const Order = require("../models/order.model");
 const Shop = require("../models/shop.model");
 const User = require("../models/user.model");
