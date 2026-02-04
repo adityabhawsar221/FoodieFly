@@ -24,8 +24,8 @@ const signUp = async function (req, res) {
 
     const token = await genToken(user._id);
     res.cookie("token", token, {
-      secure: false,
-      sameSite: "strict",
+      secure: true,
+      sameSite: "none",
       maxAge: 7 * 24 * 60 * 60 * 1000,
       httpOnly: true,
     });
@@ -60,8 +60,8 @@ const signIn = async function (req, res) {
 
     const token = await genToken(user._id);
     res.cookie("token", token, {
-      secure: false,
-      sameSite: "strict",
+      secure: true,
+      sameSite: "none",
       maxAge: 7 * 24 * 60 * 60 * 1000,
       httpOnly: true,
     });
@@ -168,11 +168,11 @@ const handleGoogleAuth = async function (req, res) {
   }
   const token = await genToken(user._id);
   res.cookie("token", token, {
-    secure: false,
-    sameSite: "strict",
-    maxAge: 7 * 24 * 60 * 60 * 1000,
-    httpOnly: true,
-  });
+      secure: true,
+      sameSite: "none",
+      maxAge: 7 * 24 * 60 * 60 * 1000,
+      httpOnly: true,
+    });
   console.log("logged in successfully ☑️");
   return res.status(201).json({
     message: "google authentication completed ☑️",
