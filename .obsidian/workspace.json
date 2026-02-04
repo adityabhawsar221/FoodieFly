@@ -1,0 +1,226 @@
+{
+  "main": {
+    "id": "2009df0b58538006",
+    "type": "split",
+    "children": [
+      {
+        "id": "1b669e0311ea0836",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3daae7cfaf432d53",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "frontend/src/redux/redux.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "redux"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "4e5ea70f79c6b4e3",
+    "type": "split",
+    "children": [
+      {
+        "id": "9da541c7361399cb",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c755ea243648a239",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "d14d0355a8341fb0",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "bd1cfaf3e3512fb9",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "903585a8b91ec1f0",
+    "type": "split",
+    "children": [
+      {
+        "id": "879b6bb8e1f842c7",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "43a7fe517d17c8a6",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "be154769fed92db6",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "9d829a7d855e4fd6",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "5fc2a264edca626e",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "8cc374c3a3efb33e",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "c755ea243648a239",
+  "lastOpenFiles": [
+    "frontend/README.md",
+    "middlewares.md",
+    "backend/routes/auth route js.md",
+    "frontend/node_modules/@vitejs/plugin-react/dist/refresh-runtime.js",
+    "frontend/node_modules/@vitejs/plugin-react/dist/index.js",
+    "frontend/node_modules/@vitejs/plugin-react/dist/index.d.ts",
+    "frontend/node_modules/@vitejs/plugin-react/dist",
+    "frontend/node_modules/react-icons/lib/iconsManifest.mjs",
+    "frontend/node_modules/react-icons/lib/iconBase.mjs",
+    "frontend/node_modules/react-icons/lib/iconContext.mjs",
+    "frontend/node_modules/react-icons/lib/package.json",
+    "frontend/node_modules/scheduler/cjs/scheduler.production.js",
+    "frontend/node_modules/scheduler/cjs/scheduler.native.production.js",
+    "frontend/node_modules/react-router-dom/README.md",
+    "frontend/node_modules/react-router-dom/LICENSE.md",
+    "frontend/node_modules/cookie/README.md",
+    "frontend/node_modules/set-cookie-parser/README.md",
+    "frontend/node_modules/magic-string/README.md",
+    "frontend/node_modules/@tailwindcss/vite/README.md",
+    "frontend/node_modules/graceful-fs/README.md",
+    "frontend/node_modules/tailwindcss/README.md",
+    "frontend/node_modules/jiti/README.md",
+    "frontend/node_modules/lightningcss/README.md",
+    "frontend/node_modules/detect-libc/README.md",
+    "frontend/node_modules/enhanced-resolve/README.md",
+    "frontend/node_modules/lightningcss-win32-x64-msvc/README.md",
+    "frontend/src/assets/react.svg",
+    "frontend/public/vite.svg",
+    "frontend/FoodieFly/node_modules/ajv/lib/dotjs/README.md",
+    "frontend/FoodieFly/src/assets/react.svg",
+    "frontend/FoodieFly/public/vite.svg",
+    "frontend/FoodieFly/README.md",
+    "backend/node_modules/cors/README.md",
+    "backend/node_modules/cors/HISTORY.md",
+    "backend/node_modules/cors/CONTRIBUTING.md",
+    "backend/node_modules/object-assign/readme.md",
+    "backend/routes/routes.md",
+    "routes.md",
+    "backend/controllers/auth controller js.md",
+    "backend/index js.md"
+  ]
+}
