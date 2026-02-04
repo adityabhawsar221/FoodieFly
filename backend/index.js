@@ -18,13 +18,8 @@ const port = process.env.PORT || 3000;
 const app = express();
 const server = http.createServer(app);
 
-const allowedOriginRegex = /^https?:\/\/(localhost|127\.0\.0\.1):(5173|5174|5175)$/;
 const corsOptions = {
-  origin: (origin, callback) => {
-    // allow non-browser tools (no origin) and local Vite dev servers
-    if (!origin || allowedOriginRegex.test(origin)) return callback(null, true);
-    return callback(new Error(`CORS blocked origin: ${origin}`));
-  },
+  origin: "http://localhost:5173",
   credentials: true,
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
@@ -33,10 +28,7 @@ const corsOptions = {
 const io = new Server(server, {
   // middlewares
   cors: {
-    origin: (origin, callback) => {
-      if (!origin || allowedOriginRegex.test(origin)) return callback(null, true);
-      return callback(new Error(`Socket.IO CORS blocked origin: ${origin}`));
-    },
+    origin: "http://localhost:5173",
     credentials: true,
     methods: ["GET", "POST" , "PUT", "DELETE"],
     
