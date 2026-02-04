@@ -19,7 +19,7 @@ const app = express();
 const server = http.createServer(app);
 
 const corsOptions = {
-  origin: "http://localhost:5173",
+  origin: "https://foodiefly-igaw.onrender.com",
   credentials: true,
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
@@ -28,7 +28,7 @@ const corsOptions = {
 const io = new Server(server, {
   // middlewares
   cors: {
-    origin: "http://localhost:5173",
+    origin: "https://foodiefly-igaw.onrender.com",
     credentials: true,
     methods: ["GET", "POST" , "PUT", "DELETE"],
     
