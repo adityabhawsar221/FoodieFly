@@ -21,14 +21,21 @@ const createTransporter = () => {
   }
 
   // Gmail fallback for local/dev. Note: some hosts block SMTP ports.
+  const gmailPort = Number(process.env.GMAIL_SMTP_PORT || 587);
+  const gmailSecure = process.env.GMAIL_SMTP_SECURE
+    ? String(process.env.GMAIL_SMTP_SECURE) === "true"
+    : gmailPort === 465;
+
   return nodemailer.createTransport({
     service: "gmail",
-    port: Number(process.env.GMAIL_SMTP_PORT || 587),
-    secure: false,
+    host: process.env.GMAIL_SMTP_HOST || "smtp.gmail.com",
+    port: gmailPort,
+    secure: gmailSecure,
     auth: {
       user: process.env.EMAIL,
       pass: process.env.PASS,
     },
+    requireTLS: gmailPort === 587,
     connectionTimeout: Number(process.env.SMTP_CONNECTION_TIMEOUT || 10000),
     greetingTimeout: Number(process.env.SMTP_GREETING_TIMEOUT || 10000),
     socketTimeout: Number(process.env.SMTP_SOCKET_TIMEOUT || 20000),
