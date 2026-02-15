@@ -1,7 +1,7 @@
 const User = require("../models/user.model");
 const bcrypt = require("bcryptjs");
 const genToken = require("../utils/token");
-const sendOtpMail = require("../utils/mail");
+const { sendOtpMail } = require("../utils/mail");
 
 const signUp = async function (req, res) {
   try {
@@ -102,7 +102,32 @@ const sendOtp = async function (req, res) {
     user.resetOtp = otp;
     user.otpExpires = Date.now() + 5 * 60 * 1000;
     await user.save();
-    await sendOtpMail(email, otp);
+
+    try {
+      await sendOtpMail(email, otp);
+    } catch (mailErr) {
+      // rollback OTP so we don't keep an undeliverable OTP in DB
+      try {
+        user.resetOtp = undefined;
+        user.otpExpires = undefined;
+        await user.save();
+      } catch (_) {
+        // ignore rollback errors
+      }
+
+      const isTimeout =
+        /timeout/i.test(String(mailErr?.message || mailErr)) ||
+        /ETIMEDOUT/i.test(String(mailErr?.code || ""));
+      const isNotConfigured = String(mailErr?.code || "") === "MAIL_NOT_CONFIGURED";
+
+      return res.status(503).json({
+        message: isNotConfigured
+          ? "OTP service is not configured on the server"
+          : isTimeout
+          ? "OTP service timed out while sending email"
+          : "Failed to send OTP",
+      });
+    }
 
     return res.status(201).json({ message: "OTP sent successfully." });
   } catch (error) {

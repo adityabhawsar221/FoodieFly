@@ -512,15 +512,43 @@ const sendDeliveryOtp = async (req, res) => {
   try {
     const { orderId, shopOrderId } = req.body;
     const order = await Order.findById(orderId).populate("user");
+    if (!order) {
+      return res.status(404).json({ message: "Order not found" });
+    }
     const shopOrder = order.shopOrders.id(shopOrderId);
-    if (!shopOrder || !order) {
+    if (!shopOrder) {
       return res.status(404).json({ message: "Order or Shop order not found" });
     }
     const otp = Math.floor(1000 + Math.random() * 9000).toString();
     shopOrder.deliveryOtp = otp;
     shopOrder.otpExpires = new Date(Date.now() + 10 * 60 * 1000); // 10 minutes from now
     await order.save();
-    await sendDeliveryOtpMail(order.user, otp);
+
+    try {
+      await sendDeliveryOtpMail(order.user, otp);
+    } catch (mailErr) {
+      // rollback OTP so we don't keep an undeliverable OTP in DB
+      try {
+        shopOrder.deliveryOtp = null;
+        shopOrder.otpExpires = null;
+        await order.save();
+      } catch (_) {
+        // ignore rollback errors
+      }
+
+      const isTimeout =
+        /timeout/i.test(String(mailErr?.message || mailErr)) ||
+        /ETIMEDOUT/i.test(String(mailErr?.code || ""));
+      const isNotConfigured = String(mailErr?.code || "") === "MAIL_NOT_CONFIGURED";
+
+      return res.status(503).json({
+        message: isNotConfigured
+          ? "OTP service is not configured on the server"
+          : isTimeout
+          ? "OTP service timed out while sending email"
+          : "Failed to send delivery OTP",
+      });
+    }
     return res.status(200).json({
       message: `Delivery OTP sent to ${order.user?.fullname} successfully `,
     });
