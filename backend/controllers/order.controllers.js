@@ -527,6 +527,11 @@ const sendDeliveryOtp = async (req, res) => {
     try {
       await sendDeliveryOtpMail(order.user, otp);
     } catch (mailErr) {
+      console.error("sendDeliveryOtp mail error:", {
+        code: mailErr?.code,
+        message: mailErr?.message,
+      });
+
       // rollback OTP so we don't keep an undeliverable OTP in DB
       try {
         shopOrder.deliveryOtp = null;

@@ -9,6 +9,7 @@ const authRouter = require("./routes/auth.routes");
 const shopRouter = require("./routes/shop.routes");
 const itemRouter = require("./routes/item.routes");
 const orderRouter = require("./routes/order.routes");
+const healthRouter = require("./routes/health.routes");
 const http = require("http");
 const https = require("https");
 const { Server } = require("socket.io");
@@ -47,6 +48,7 @@ app.use("/api/user", userRouter);
 app.use("/api/shop", shopRouter);
 app.use("/api/item", itemRouter);
 app.use("/api/order", orderRouter);
+app.use("/api/health", healthRouter);
 
 app.get("/", (req, res) => {
   return res.send("home-page");

@@ -106,6 +106,11 @@ const sendOtp = async function (req, res) {
     try {
       await sendOtpMail(email, otp);
     } catch (mailErr) {
+      console.error("sendOtp mail error:", {
+        code: mailErr?.code,
+        message: mailErr?.message,
+      });
+
       // rollback OTP so we don't keep an undeliverable OTP in DB
       try {
         user.resetOtp = undefined;

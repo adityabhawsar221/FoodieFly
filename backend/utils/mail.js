@@ -88,4 +88,10 @@ const sendDeliveryOtpMail = async function (user, otp) {
   })
 };
 
-module.exports = { sendOtpMail, sendDeliveryOtpMail };
+const verifyMailTransport = async () => {
+  assertMailConfigured();
+  // nodemailer verify opens a connection and checks auth when possible
+  return transporter.verify();
+};
+
+module.exports = { sendOtpMail, sendDeliveryOtpMail, verifyMailTransport };
